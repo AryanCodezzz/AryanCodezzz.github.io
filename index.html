@@ -3,169 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Home</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* General styles for the page */
         body {
             font-family: Arial, sans-serif;
-            color: #fff;
-            text-align: center;
-            overflow: hidden; /* Prevent any extra overflow */
-            position: relative;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background-color: #333333;
+            overflow: hidden; /* Prevent scrollbars from appearing due to the video */
         }
 
-        /* Background Video Styling */
         #background-video {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw; /* 100% width of the viewport */
-            height: 100vh; /* 100% height of the viewport */
-            object-fit: cover; /* Ensures video covers the entire screen */
-            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the entire viewport */
+            z-index: -1; /* Place the video behind other content */
         }
 
-        /* Emoji Animations */
-        .emoji {
-            font-size: 32px;
-            animation: float 3s infinite ease-in-out;
-        }
-
-        .emoji:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .emoji:nth-child(3) {
-            animation-delay: 2s;
-        }
-
-        .emoji:nth-child(4) {
-            animation-delay: 3s;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Main Content Styling */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            z-index: 1;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        section {
-            margin: 40px 0;
-        }
-
-        h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #ff6347;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .projects-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .project {
-            background-color: rgba(255, 255, 255, 0.2);
+        .content {
             padding: 20px;
-            border-radius: 10px;
-            width: 45%;
+            position: relative; /* Ensure content appears above the video */
+            z-index: 1; /* Ensure content is above the video */
+        }
+
+        header {
             margin-bottom: 20px;
-            transition: transform 0.3s;
         }
 
-        .project:hover {
-            transform: scale(1.05);
-        }
-
-        .social-links a {
+        .nav-link {
+            display: inline-block;
+            margin: 20px;
+            font-size: 1.2rem;
+            color: #00bfff;
             text-decoration: none;
-            color: #fff;
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
             border-radius: 5px;
-            margin: 10px;
-            display: inline-block;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
-        .social-links a:hover {
-            background-color: #ff6347;
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #00bfff;
+        }
+
+        .section-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        /* Footer styles */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 1; /* Ensure footer is above other content */
+            animation: slide-in-out 5s infinite; /* Animation for sliding effect */
+        }
+
+        @keyframes slide-in-out {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            10% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            90% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <video autoplay muted loop id="background-video">
+        <source src="bugatti.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-<!-- Background Video -->
-<video autoplay muted loop id="background-video">
-    <source src="bugatti.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-</video>
+    <div class="content">
+        <header>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#social" class="nav-link">Social</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </header>
 
-<!-- Main Content -->
-<div class="container">
-    <h1>Welcome to My Portfolio! <span class="emoji">🚀</span> <span class="emoji">✨</span> <span class="emoji">💼</span></h1>
-
-    <!-- About Me Section -->
-    <section>
-        <h2>About Me</h2>
-        <p>Hi, I'm [Your Name], a passionate [your profession]. I love building projects that solve real-world problems and push the boundaries of creativity. In my free time, I enjoy exploring new technologies, tinkering with new ideas, and learning constantly. <span class="emoji">🔥</span> <span class="emoji">💻</span></p>
-    </section>
-
-    <!-- Projects Section -->
-    <section>
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>A brief description of your first project. What it does, technologies used, and why it matters.</p>
+        <section class="section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-content">
+                <ul>
+                    <li>I am [Your Name], passionate about technology and creative solutions.</li>
+                    <li>Explore this site to know more about me, my projects, and social links.</li>
+                </ul>
             </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>A brief description of your second project. Explain its importance and the skills it demonstrates.</p>
+        </section>
+
+        <section class="section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Project 1: Description of your first project.</li>
+                    <li>Project 2: Description of your second project.</li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section>
-        <h2>Contact Me</h2>
-        <p>I'd love to hear from you! Whether you have a project in mind, want to collaborate, or just want to chat about technology, feel free to reach out.</p>
-        <div class="social-links">
-            <a href="mailto:your.email@example.com">Email</a>
-            <a href="https://www.linkedin.com/">LinkedIn</a>
-            <a href="https://github.com/">GitHub</a>
-        </div>
-    </section>
-</div>
+        <section class="section" id="social">
+            <h2 class="section-title">Social Links</h2>
+            <div class="section-content">
+                <ul>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </section>
 
+        <section class="section" id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="section-content">
+                <ul>
+                    <li>Email: your.email@example.com</li>
+                    <li>Feel free to reach out for collaboration or queries.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Shhhhhh!!! We Are Anonymous.</p>
+    </footer>
 </body>
 </html>
+
 
 
