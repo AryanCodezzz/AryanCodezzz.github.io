@@ -5,75 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            box-sizing: border-box;
         }
-        .about-container {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
             text-align: center;
+            overflow-x: hidden;
         }
-        .profile-image {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 20px;
+        /* Background Video Styling */
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            filter: brightness(60%);
         }
+
+        /* Emoji Animations */
+        .emoji {
+            font-size: 32px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .emoji:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .emoji:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .emoji:nth-child(4) {
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Main Content Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+        }
+
         h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 48px;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
+
+        section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ff6347;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .project {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
         .social-links a {
             text-decoration: none;
             color: #fff;
-            background-color: #0077b5;
+            background-color: #333;
             padding: 10px 20px;
             border-radius: 5px;
-            margin: 0 5px;
+            margin: 10px;
             display: inline-block;
+            transition: background-color 0.3s;
         }
+
         .social-links a:hover {
-            opacity: 0.8;
-        }
-        .social-links .twitter {
-            background-color: #1da1f2;
-        }
-        .social-links .github {
-            background-color: #333;
+            background-color: #ff6347;
         }
     </style>
 </head>
 <body>
 
-<div class="about-container">
-    <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-image">
-    <h1>Your Name</h1>
-    <p>Hello! I'm [Your Name], a passionate [your profession or interest]. I enjoy working on creative projects, learning new skills, and connecting with like-minded individuals. When I'm not working, you can find me [your hobbies or other interests].</p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com/" class="twitter" target="_blank">Twitter</a>
-        <a href="https://github.com/" class="github" target="_blank">GitHub</a>
-    </div>
+<!-- Background Video -->
+<video autoplay muted loop id="background-video">
+    <source src="bugatti.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Welcome to My Portfolio! <span class="emoji">🚀</span> <span class="emoji">✨</span> <span class="emoji">💼</span></h1>
+
+    <!-- About Me Section -->
+    <section>
+        <h2>About Me</h2>
+        <p>Hi, I'm [Your Name], a passionate [your profession]. I love building projects that solve real-world problems and push the boundaries of creativity. In my free time, I enjoy exploring new technologies, tinkering with new ideas, and learning constantly. <span class="emoji">🔥</span> <span class="emoji">💻</span></p>
+    </section>
+
+    <!-- Projects Section -->
+    <section>
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>A brief description of your first project. What it does, technologies used, and why it matters.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>A brief description of your second project. Explain its importance and the skills it demonstrates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <h2>Contact Me</h2>
+        <p>I'd love to hear from you! Whether you have a project in mind, want to collaborate, or just want to chat about technology, feel free to reach out.</p>
+        <div class="social-links">
+            <a href="mailto:your.email@example.com">Email</a>
+            <a href="https://www.linkedin.com/">LinkedIn</a>
+            <a href="https://github.com/">GitHub</a>
+        </div>
+    </section>
 </div>
 
 </body>
 </html>
+
