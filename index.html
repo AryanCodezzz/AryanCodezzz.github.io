@@ -14,22 +14,19 @@
             font-family: Arial, sans-serif;
             color: #fff;
             text-align: center;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevent any extra overflow */
+            position: relative;
         }
 
         /* Background Video Styling */
         #background-video {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            top: 0;
+            left: 0;
+            width: 100vw; /* 100% width of the viewport */
+            height: 100vh; /* 100% height of the viewport */
+            object-fit: cover; /* Ensures video covers the entire screen */
             z-index: -1;
-            filter: brightness(60%);
-            object-fit: cover; /* Ensures video covers the entire background */
         }
 
         /* Emoji Animations */
@@ -63,6 +60,8 @@
             padding: 50px 20px;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
+            z-index: 1;
+            position: relative;
         }
 
         h1 {
@@ -168,4 +167,5 @@
 
 </body>
 </html>
+
 
